@@ -1,45 +1,57 @@
-# Python: Getting Started
+# webhook-aiogram-heroku
 
-A barebones Django app, which can easily be deployed to Heroku.
+[![Generic badge](https://img.shields.io/badge/works-yes-<COLOR>.svg)](https://aahnik.github.io)
+[![ MIT license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://aahnik.github.io/)
+[![telegram-chat](https://img.shields.io/badge/chat-@aahnikdaw-blue?logo=telegram)](https://telegram.me/aahnikdaw)
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+A simple telegram echo bot made with [`aiogram`](https://github.com/aiogram/aiogram), that fetches updates using web-hook connection.
 
-## Running Locally
+## Deploy
 
-Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+This bot can be easily deployed to [Heroku](https://heroku.com/) cloud platform.
 
-```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
+The following steps assume that you have Heroku CLI installed in your system.
 
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
+1. Clone the repo and move into the project directory.
 
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
+```shell
+git clone https://github.com/aahnik/webhook-aiogram-heroku.git
+cd webhook-aiogram-heroku
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+2. Create a new Heroku app.
 
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku main
-
-$ heroku run python manage.py migrate
-$ heroku open
+```shell
+heroku create
 ```
-or
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+3. Set the Config Vars.
 
-## Documentation
+<details>
+<summary> 👉 Click here to know more </summary>
 
-For more information about using Python on Heroku, see these Dev Center articles:
+| Config Var | Description |
+| -- | -- |
+|`HEROKU_APP_NAME` | name of your Heroku app. You may set it manually or [turn on Dyno Metadata feature](https://devcenter.heroku.com/articles/dyno-metadata) which is currently in Heroku Labs.|
+| `BOT_TOKEN` | the token for your bot given by [@BotFather](https://telegram.me/BotFather) after bot creation.|
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+</details>
+
+```shell
+heroku labs:enable runtime-dyno-metadata
+heroku config:set BOT_TOKEN=<your token>
+```
+
+4. Push the code to Heroku.
+
+```shell
+git push heroku main
+```
+
+## Cheers
+
+To confirm your bot is working:
+
+- Run `heroku ps` which will show you details of your dyno.
+
+- Send a message to your bot, and your bot will echo it back to you.
