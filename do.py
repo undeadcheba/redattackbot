@@ -18,7 +18,8 @@ def set_hook():
     asyncio.run(hook_set())
     bot.close()
 
+def main():
+	quit()
 
 def start():
-    from bot.bot import main
     main()
