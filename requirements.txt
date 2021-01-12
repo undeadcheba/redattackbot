@@ -1,3 +1,2 @@
 ado-py==0.0.7
 telegram
-telegram.ext
