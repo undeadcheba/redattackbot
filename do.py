@@ -31,7 +31,7 @@ class BotHandler:
 
         return last_update
 
-greet_bot = BotHandler(os.environ['BOT_TOKE'])
+greet_bot = BotHandler(os.environ['BOT_TOKEN'])
 greetings = ('hi')  
 now = datetime.datetime.now()
 
