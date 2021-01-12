@@ -1,1 +1,1 @@
-web: ado start
+web: ado main
