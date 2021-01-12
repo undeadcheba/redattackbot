@@ -1,2 +1,2 @@
 ado-py==0.0.7
-telegram
+requests
