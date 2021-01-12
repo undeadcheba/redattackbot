@@ -1,8 +1,6 @@
 import requests
 import datetime
 import os
-import boto
-
 
 class BotHandler:
 
